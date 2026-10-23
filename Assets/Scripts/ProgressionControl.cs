@@ -14,10 +14,15 @@ public class ProgressionControl : MonoBehaviour
     
     // THE STEPS MUST BE IN ORDER, OTHERWISE IT WON'T FOLLOW THE LINEAR RHYTHM
     [SerializeField] public List<Step> steps = new List<Step>();
-    public TextMeshProUGUI instructionText;
+    public TextMeshProUGUI instructionText, stepDisplay;
 
     private int _current;
-    private bool _done;
+
+    void Start()
+    {
+        instructionText.text = steps[0].instruction;
+        stepDisplay.text = $"Paso {_current + 1} de {steps.Count}";
+    }
 
     public void FetchAudioClip()
     {
@@ -30,5 +35,6 @@ public class ProgressionControl : MonoBehaviour
         
         instructionText.text = steps[_current].instruction;
         FetchAudioClip();
+        stepDisplay.text = $"Paso {_current + 1} de {steps.Count}";
     }
 }
