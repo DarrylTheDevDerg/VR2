@@ -1186,7 +1186,7 @@ MeshCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7567532504055388576, guid: 2b839187777025841b951bc99b5cebbf, type: 3}
 --- !u!1 &137477489
@@ -6259,7 +6259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 492552091407078822, guid: 701378d04d18d234a8652f33619a9a8c, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2665874124159154802, guid: 701378d04d18d234a8652f33619a9a8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6309,9 +6309,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5027535092681715373, guid: 701378d04d18d234a8652f33619a9a8c, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637151799674567678, guid: 701378d04d18d234a8652f33619a9a8c, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8776478336179367880, guid: 701378d04d18d234a8652f33619a9a8c, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7228,7 +7236,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8549885359043270352, guid: b1c9d8ed48cc4a14a81c7830a3298189, type: 3}
 --- !u!54 &661740460
@@ -21458,6 +21466,14 @@ PrefabInstance:
       propertyPath: _ovrCameraRig
       value: 
       objectReference: {fileID: 802402279}
+    - target: {fileID: 6744807187139327233, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _handlers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744807187139327233, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: '_handlers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2071198944}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21494,6 +21510,17 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 2063f481-1b63-4eda-9ee8-a00df98536bc
     _installationVariants: []
+--- !u!114 &2071198944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8293239548632680325, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+  m_PrefabInstance: {fileID: 2071198940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a4fd4ac2e6844daa2305603ce9688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076296239
 GameObject:
   m_ObjectHideFlags: 0
@@ -22714,6 +22741,6 @@ SceneRoots:
   - {fileID: 1095094404}
   - {fileID: 967016955}
   - {fileID: 1308230562}
-  - {fileID: 287899791}
   - {fileID: 689674238}
+  - {fileID: 287899791}
   - {fileID: 661740456}

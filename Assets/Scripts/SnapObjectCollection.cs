@@ -36,7 +36,7 @@ public class SnapObjectCollection : MonoBehaviour
 
     private bool _done, _f;
 
-    private List<Vector3> _validPoints;
+    private List<Vector3> _validPoints = new List<Vector3>();
 
     private ProgressionControl _pG;
     
@@ -49,12 +49,14 @@ public class SnapObjectCollection : MonoBehaviour
         _measuring = _c.ClosestPointOnBounds(transform.position);
         _b = _c.bounds;
         
-        _mat = GetComponent<MeshRenderer>().material;
+        _mat = guideObject.GetComponent<MeshRenderer>().material;
         _oA = _mat.color.a;
 
         _pG = FindFirstObjectByType<ProgressionControl>();
 
-        if (shouldGuide && !_f && guideObject)
+        if (shouldGuide) guideObject.SetActive(true);
+        
+        if (shouldGuide && !_f && guideObject.activeSelf)
         {
             StartCoroutine(FadeLoop());
             _f = true;
@@ -75,27 +77,31 @@ public class SnapObjectCollection : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (itemList.Count <= itemLimit)
         {
             if (itemList.Contains(other.gameObject)) return;
             
             other.transform.SetParent(transform);
+            
+            if (other.GetComponent<OVRGrabbable>()) other.GetComponent<OVRGrabbable>().GrabEnd(Vector3.zero, Vector3.zero);
+            if (other.GetComponent<OVRGrabbable>()) other.GetComponent<OVRGrabbable>().enabled = false;
         
             Vector3 pos = new Vector3(Mathf.PerlinNoise1D(Random.Range(_b.min.x, _b.max.x)), _b.min.y, Mathf.PerlinNoise1D(Random.Range(_c.bounds.min.z, _c.bounds.max.z)));
 
-            foreach (Vector3 o in _validPoints)
+            if (_validPoints is { Count: > 0 })
             {
-                if (o.Equals(pos)) pos = new Vector3(Mathf.InverseLerp(Mathf.PerlinNoise1D(Random.Range(_b.min.x, _b.max.x)), o.x, transform.position.x), _b.min.y, Mathf.InverseLerp(Mathf.PerlinNoise1D(Random.Range(_b.min.z, _b.max.z)), o.z, transform.position.z));
+                foreach (Vector3 o in _validPoints)
+                {
+                    if (o.Equals(pos)) pos = new Vector3(Mathf.InverseLerp(Mathf.PerlinNoise1D(Random.Range(_b.min.x, _b.max.x)), o.x, pos.x), _b.min.y, Mathf.InverseLerp(Mathf.PerlinNoise1D(Random.Range(_b.min.z, _b.max.z)), o.z, pos.z));
+                }
             }
 
             other.transform.position = pos;
+            _validPoints.Add(pos);
         
             itemList.Add(other.gameObject);
-            _validPoints.Add(other.gameObject.transform.position);
-            
-            if (other.GetComponent<OVRGrabbable>()) other.GetComponent<OVRGrabbable>().enabled = false;
         }
     }
 

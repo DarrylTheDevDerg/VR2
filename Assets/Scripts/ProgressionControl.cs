@@ -31,7 +31,7 @@ public class ProgressionControl : MonoBehaviour
     public TextMeshProUGUI instructionText, stepDisplay, taskList;
     public VisualPointer pointer;
     
-    private int _current, _tasksFinished;
+    private int _current = 0, _tasksFinished;
     private bool _marked;
     private CookingSimulator _timer;
 
@@ -44,6 +44,7 @@ public class ProgressionControl : MonoBehaviour
         
         CreateMarkers();
         steps[0].onStart?.Invoke();
+        SetUI(true);
     }
 
     void Update()
@@ -92,7 +93,7 @@ public class ProgressionControl : MonoBehaviour
 
     public void IncreaseTaskCompletion(string taskName)
     {
-        SetUI();
+        SetUI(true);
 
         foreach (Step step in steps)
         {
@@ -103,16 +104,15 @@ public class ProgressionControl : MonoBehaviour
         }
     }
 
-    private void SetUI()
+    private void SetUI(bool wipe)
     {
-        foreach (Step step in steps)
+        if (wipe) taskList.text = "";
+        
+        foreach (Task t in steps[_current].groceryList)
         {
-            foreach (Task t in step.groceryList)
-            {
-                string done = t.isDone ? "¡LISTO!" : "PENDIENTE";
+            string done = t.isDone ? "✓" : "✕";
                 
-                taskList.text += $"{t.name}: {done}";
-            }
+            taskList.text += $"{t.name}: {done}\n";
         }
     }
 

@@ -30,7 +30,7 @@ public class AnimatorControl : MonoBehaviour
     public bool shouldBegin;
 
     private Animator _a;
-    private int _current;
+    private int _current = 0;
     private bool _working;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,13 +41,13 @@ public class AnimatorControl : MonoBehaviour
         if (shouldBegin) UpdateAnimatorParams(_current);
     }
 
-    public void UpdateAnimatorParams(int index)
+    public void UpdateAnimatorParams(int i)
     {
         if (_working) return;
         
         _working = true;
         
-        foreach (Asset a in param[index].assets)
+        foreach (Asset a in param[i].assets)
         {
             switch (a.type)
             {
