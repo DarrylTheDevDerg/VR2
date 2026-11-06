@@ -106,10 +106,23 @@ public class CookingSimulator : MonoBehaviour
         if (f.Equals(cookedFood)) return;
         
         food = f;
+        SetTime(food);
     }
 
     void OnTriggerExit(Collider other)
     {
         if (food && GetRoot(other).Equals(food)) food = null;
+    }
+
+    private void SetTime(GameObject obj)
+    {
+        if (obj.name.Contains("CRice")) timeNeeded = 15f;
+        
+        if (obj.name.Contains("CSteak")) timeNeeded = 30f;
+    }
+
+    public bool Inquiry()
+    {
+        return _active;
     }
 }
