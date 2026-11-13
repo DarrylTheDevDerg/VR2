@@ -21,8 +21,16 @@ public class AlchemyFromTriggers : MonoBehaviour
         
         Instantiate(newObject, targetObject.transform.position, Quaternion.identity);
         
-        if (shouldDestroy) Destroy(targetObject);
-        else targetObject.SetActive(false);
+        if (shouldDestroy)
+        {
+            Destroy(targetObject);
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            targetObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
+        }
         
         enabled = false;
     }

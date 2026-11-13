@@ -6539,7 +6539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinchDetector
   hand: {fileID: 600062247}
-  maxDistance: 1.65
+  maxDistance: 3.65
   onPinch:
     m_PersistentCalls:
       m_Calls:
@@ -20310,6 +20310,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 287899795}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     instruction: "\xA1Saca una tabla de corte y deja la carne encima para cortarla
       con el cuchillo!"
     audio: {fileID: 8300000, guid: fc9b0e8a37bd34b459d75bc764ed6868, type: 3}
@@ -26826,7 +26838,7 @@ MonoBehaviour:
   targetObject: {fileID: 287899792}
   newObject: {fileID: 2533202152302487121, guid: 38b5024019ddfcf4caf69d0f010bc61f, type: 3}
   targetTag: Food
-  shouldDestroy: 0
+  shouldDestroy: 1
 --- !u!33 &6529601140056732476
 MeshFilter:
   m_ObjectHideFlags: 0

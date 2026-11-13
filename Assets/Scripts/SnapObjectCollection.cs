@@ -114,6 +114,16 @@ public class SnapObjectCollection : MonoBehaviour
         
         if (gr) gr.enabled = false;
     }
+    
+    static void EnableGrabbing(GameObject g, Grabbable gr)
+    {
+        foreach (IInteractable i in g.GetComponentsInChildren<IInteractable>(true))
+        {
+            if (i is Behaviour b) b.enabled = true;
+        }
+        
+        if (gr) gr.enabled = true;
+    }
 
     IEnumerator PlaceRoutine(GameObject g, Rigidbody r)
     {
@@ -193,6 +203,12 @@ public class SnapObjectCollection : MonoBehaviour
         
         StopCoroutine(FadeLoop());
         if (guideObject) guideObject.SetActive(false);
+
+        foreach (GameObject g in itemList)
+        {
+            g.transform.parent = null;
+            EnableGrabbing(g, g.GetComponent<Grabbable>());
+        }
         
         afterFinish?.Invoke();
         enabled = false;
