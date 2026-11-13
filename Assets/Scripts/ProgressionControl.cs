@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using JetBrains.Annotations;
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine.Events;
 
 public class ProgressionControl : MonoBehaviour
@@ -33,7 +34,7 @@ public class ProgressionControl : MonoBehaviour
     public VisualPointer pointer;
     
     private int _current = 0, _tasksFinished;
-    private bool _marked, _finished;
+    private bool _finished;
     private CookingSimulator _timer;
     private readonly StringBuilder _sb = new StringBuilder();
     private const string done = "[X]";
@@ -54,9 +55,6 @@ public class ProgressionControl : MonoBehaviour
         SetUI();
         
         FetchAudioClip();
-        
-        if (!_marked)
-            CreateMarkers();
     }
 
     void Update()
@@ -84,13 +82,15 @@ public class ProgressionControl : MonoBehaviour
             return;
         }
         
+        TrashMarkers();
+        
         _current++;
         SetUI();
         FetchAudioClip();
         steps[_current].onStart?.Invoke();
     }
 
-    private void CreateMarkers()
+    public void CreateMarkers()
     {
         if (!pointer) return;
         if (steps[_current].objectsToPoint == null) return;
@@ -154,5 +154,38 @@ public class ProgressionControl : MonoBehaviour
         }
         
         return true;
+    }
+
+    public void StopSequenceBreak(GameObject parent)
+    {
+        foreach (GameObject child in parent.transform)
+        {
+            if (child.name.Contains("ISDK"))
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void WeNeedTheGrabbies(GameObject parent)
+    {
+        foreach (GameObject child in parent.transform)
+        {
+            if (child.name.Contains("ISDK"))
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void TrashMarkers()
+    {
+        HardcodedAnim[] markers = null;
+        markers = GameObject.FindObjectsByType<HardcodedAnim>(FindObjectsSortMode.None);
+
+        foreach (HardcodedAnim m in markers)
+        {
+            Destroy(m.gameObject);
+        }
     }
 }

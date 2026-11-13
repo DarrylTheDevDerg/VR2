@@ -31,10 +31,17 @@ public class SpoonMixer : MonoBehaviour
     public float Progress => totalAmount <= 0f ? 0f : mixedAmount / totalAmount;
     
     public event System.Action<IngredientData, float> OnIngredientAdded;
+
+    private void Start()
+    {
+        spoonTip.transform.Find("Tip");
+    }
     
     private void Update()
     {
         if (finished) return;
+        
+        spoonTip.transform.Find("Tip");
 
         // Tip position relative to the bowl, so moving/rotating the bowl doesn't matter
         Vector3 local = bowlCenter.InverseTransformPoint(spoonTip.position);

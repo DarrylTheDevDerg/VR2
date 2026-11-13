@@ -1,0 +1,573 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6486824826601976201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206489279018821357}
+  - component: {fileID: 5296512664053172596}
+  - component: {fileID: 6902862729500524686}
+  m_Layer: 0
+  m_Name: Progression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206489279018821357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6486824826601976201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5296512664053172596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6486824826601976201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541ba21894728ab47acd7b72fca7ee3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressionControl
+  steps:
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "\xA1Busca el arroz, la carne en el congelador y las especias!"
+    audio: {fileID: 8300000, guid: ba26047e0d85e284c81bbaee4acd23b1, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    groceryList:
+    - name: Conseguir el arroz
+      isDone: 0
+    - name: Conseguir la carne
+      isDone: 0
+    - name: Conseguir las especias
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    instruction: "\xA1Encuentra las s\xE1rtenes para el arroz y la carne!"
+    audio: {fileID: 8300000, guid: c34f300a17aedee499b35646cb694e84, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    groceryList:
+    - name: "Conseguida sart\xE9n del arroz"
+      isDone: 0
+    - name: "Conseguida sart\xE9n para la carne"
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    instruction: "\xA1Echa el arroz en la olla arrocera y agrega aceite, junto con
+      especias! Usa una cuchara de madera limpia para mezclar."
+    audio: {fileID: 8300000, guid: 2b0553f846bb14046b86364a2e018876, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    groceryList:
+    - name: Echar arroz a la olla
+      isDone: 0
+    - name: Echar aceite y especias
+      isDone: 0
+    - name: Mezclar con cuchara de madera
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    instruction: "\xA1Saca una tabla de corte y deja la carne encima para cortarla
+      con el cuchillo!"
+    audio: {fileID: 8300000, guid: fc9b0e8a37bd34b459d75bc764ed6868, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    groceryList:
+    - name: Conseguida tabla de corte
+      isDone: 0
+    - name: Carne es puesta encima de la tabla
+      isDone: 0
+    - name: Cortar la carne
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    instruction: "\xA1Echa los pedazos de carne dentro de la s\xE1rten, echandol\xE9
+      aceite y especias tambi\xE9n! Usa una cuchara de madera limpia para mezclar."
+    audio: {fileID: 8300000, guid: 2ae8d2ac9cf13a045a9b00e3b4e8055a, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    groceryList:
+    - name: Echar carne al wok
+      isDone: 0
+    - name: Agregar aceite y especias
+      isDone: 0
+    - name: Mezclar todo con una cuchara de madera
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "\xA1Prende el fuego para el arroz y la carne! El arroz tomar\xE1
+      15 minutos, mientras que la carne toma 30 minutos. \xA1Asegurat\xE9 de echar
+      agua al arroz tambi\xE9n!"
+    audio: {fileID: 8300000, guid: d7f0da1917a80d24e89a6385d044ec20, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    - {fileID: 7295674899413961228, guid: 632d4fb7b99cb75469a4e1821ef24a36, type: 3}
+    - {fileID: 2533202152302487121, guid: 38b5024019ddfcf4caf69d0f010bc61f, type: 3}
+    groceryList:
+    - name: Prender el fuego para el arroz
+      isDone: 0
+    - name: Prender el fuego para la carne
+      isDone: 0
+    - name: Echar agua al arroz
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "Mientras se cocina el arroz y la carne, \xA1asegurat\xE9 de que
+      no se te queme ninguno de los dos! Ve echandol\xE9 agua a la carne de vez en
+      cuando."
+    audio: {fileID: 8300000, guid: d7bf5ade4e8950d47ad0dea9bca18ff7, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    groceryList:
+    - name: Echar agua a la carne
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "\xA1El arroz est\xE1 listo! Ahora solo falta la carne, ten cuidado
+      de no diluir demasiado el jugo de este, haz un equilibrio usando las especias."
+    audio: {fileID: 8300000, guid: 41a7cbfdb3dd2664387ff34e8b4fba36, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    groceryList:
+    - name: Aplicar sal y especias al jugo
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "\xA1La carne est\xE1 lista! Consigue un plato y echa all\xED el
+      arroz junto con la carne. \xA1Que no se te olvid\xE9 el jugo de la carne!"
+    audio: {fileID: 8300000, guid: 6b998167f0c68ef43bb639ea8a909b3f, type: 3}
+    objectsToPoint:
+    - {fileID: 7295674899413961228, guid: f00e6598c74a6ad42a7e2a9659e29355, type: 3}
+    - {fileID: 2533202152302487121, guid: f509a7cb481013245b62316ac2060902, type: 3}
+    groceryList:
+    - name: Plato conseguido
+      isDone: 0
+    - name: Carne es servida encima del plato
+      isDone: 0
+    - name: Arroz es servido encima del plato
+      isDone: 0
+    - name: Aplicar jugo de carne
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - onStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5296512664053172596}
+          m_TargetAssemblyTypeName: ProgressionControl, Assembly-CSharp
+          m_MethodName: SetUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    instruction: "\xA1Ya tienes tu plato listo! Ahora, \xA1ve y sirvelo para ver
+      tu calificaci\xF3n!"
+    audio: {fileID: 8300000, guid: af4f680f8c727ec40aaaf1573082009a, type: 3}
+    objectsToPoint:
+    - {fileID: 0}
+    groceryList:
+    - name: Servir el plato
+      isDone: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  instructionText: {fileID: 0}
+  stepDisplay: {fileID: 0}
+  taskList: {fileID: 0}
+  pointer: {fileID: 6902862729500524686}
+--- !u!114 &6902862729500524686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6486824826601976201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906105b7db02b82429b3ad15279d1fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VisualPointer
+  circle: {fileID: 5807024731833768889, guid: bc3d968f1bbea614dafc90f9b8a1a4dd, type: 3}
+  arrow: {fileID: 1718729491971854115, guid: 45e0d6d571e520645b514d4aa86b73a7, type: 3}

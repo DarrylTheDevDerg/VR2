@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using Oculus.Interaction;
 
@@ -6,33 +7,43 @@ public class AlchemyFromTriggers : MonoBehaviour
 {
     public GameObject targetObject, newObject;
     
-    public string targetTag;
+    [CanBeNull] public string targetTag;
     public bool shouldDestroy;
+
+    private bool _done;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.Equals(targetObject)) Alakazam();
-        if (other.CompareTag(targetTag) && !string.IsNullOrEmpty(targetTag)) Alakazam();
+        if (!newObject) return;
+        
+        if (other.gameObject.Equals(targetObject)) 
+            Alakazam(targetObject);
+        
+        else if (!targetObject && other.CompareTag(targetTag) && !string.IsNullOrEmpty(targetTag))
+            Alakazam(other.gameObject);
     }
 
-    void Alakazam()
+    void Alakazam(GameObject obj)
     {
-        if (targetObject.GetComponent<Grabbable>() != null) DisableGrabbing(targetObject, targetObject.GetComponent<Grabbable>());
+        if (_done) return;
         
-        Instantiate(newObject, targetObject.transform.position, Quaternion.identity);
+        if (obj.GetComponent<Grabbable>()) DisableGrabbing(obj, obj.GetComponent<Grabbable>());
+        
+        Instantiate(newObject, obj.transform.position, Quaternion.identity);
         
         if (shouldDestroy)
         {
-            Destroy(targetObject);
-            Destroy(transform.parent.gameObject);
+            Destroy(obj);
+            Destroy(this);
         }
         else
         {
-            targetObject.SetActive(false);
-            transform.parent.gameObject.SetActive(false);
+            obj.SetActive(false);
+            this.gameObject.SetActive(false);
         }
         
         enabled = false;
+        _done = true;
     }
     
     static void DisableGrabbing(GameObject g, Grabbable gr)

@@ -4,14 +4,6 @@ public class VisualPointer : MonoBehaviour
 {
     public GameObject circle, arrow;
     private Bounds _b;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //_b = GetMeasure();
-        
-        //PointerVisualization();
-    }
 
     Bounds GetMeasure(Transform orig)
     {
