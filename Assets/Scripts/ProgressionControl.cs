@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Text;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine.Events;
@@ -32,34 +33,40 @@ public class ProgressionControl : MonoBehaviour
     public VisualPointer pointer;
     
     private int _current = 0, _tasksFinished;
-    private bool _marked;
+    private bool _marked, _finished;
     private CookingSimulator _timer;
+    private readonly StringBuilder _sb = new StringBuilder();
+    private const string done = "[X]";
+    private const string notdone = "[ ]";
 
     void Start()
     {
-        instructionText.text = steps[0].instruction;
-        stepDisplay.text = $"Paso {_current + 1} de {steps.Count}";
+        if (steps.Count == 0)
+        {
+            enabled = false;
+            return;
+        }
         
         _timer = FindFirstObjectByType<CookingSimulator>();
         
         CreateMarkers();
         steps[0].onStart?.Invoke();
-        SetUI(true);
+        SetUI();
+        
+        FetchAudioClip();
+        
+        if (!_marked)
+            CreateMarkers();
     }
 
     void Update()
     {
-        if (FetchDoneTaskAmt() >= steps[_current].groceryList.Count && !_timer.Inquiry())
-        {
-            steps[_current].onComplete?.Invoke();
-            Progression();
-            
-            if (!_marked)
-                CreateMarkers();
-            
-            _tasksFinished = 0;
-            steps[_current].onStart?.Invoke();
-        }
+        if (_finished) return;
+        if (!CurrentStepDone()) return;
+        if (_timer && _timer.Inquiry()) return;
+        
+        steps[_current].onComplete?.Invoke();
+        Progression();
     }
 
     public void FetchAudioClip()
@@ -69,63 +76,83 @@ public class ProgressionControl : MonoBehaviour
 
     public void Progression()
     {
-        _marked = false;
-        _current++;
+        if (_finished) return;
+
+        if (_current >= steps.Count - 1)
+        {
+            Finish();
+            return;
+        }
         
-        instructionText.text = steps[_current].instruction;
+        _current++;
+        SetUI();
         FetchAudioClip();
-        stepDisplay.text = $"Paso {_current + 1} de {steps.Count}";
+        steps[_current].onStart?.Invoke();
     }
 
     private void CreateMarkers()
     {
-        foreach (Step step in steps)
-        {
-            if (step.objectsToPoint != null)
-                foreach (GameObject go in step.objectsToPoint)
-                {
-                    pointer.PointerVisualization(go);
-                }
-        }
+        if (!pointer) return;
+        if (steps[_current].objectsToPoint == null) return;
         
-        _marked = true;
+        foreach (GameObject g in steps[_current].objectsToPoint)
+        {
+            if (g) pointer.PointerVisualization(g);
+        }
     }
 
     public void IncreaseTaskCompletion(string taskName)
     {
-        SetUI(true);
+        if (_finished) return;
 
-        foreach (Step step in steps)
-        {
-            foreach (Task t in step.groceryList)
-            {
-                if (t.name.Equals(taskName)) t.isDone = true;
-            }
-        }
-    }
-
-    private void SetUI(bool wipe)
-    {
-        if (wipe) taskList.text = "";
+        bool found = false;
         
         foreach (Task t in steps[_current].groceryList)
         {
-            string done = t.isDone ? "✓" : "✕";
-                
-            taskList.text += $"{t.name}: {done}\n";
-        }
-    }
-
-    private int FetchDoneTaskAmt()
-    {
-        foreach (Step s in steps)
-        {
-            foreach (Task t in s.groceryList)
+            if (t.name.Equals(taskName))
             {
-                if (t.isDone) _tasksFinished++;
+                t.isDone = true;
+                found = true;
+                break;
             }
         }
         
-        return _tasksFinished;
+        SetUI();
+    }
+
+    private void Finish()
+    {
+        _finished = true;
+        
+        instructionText.text = "Has finalizado la experiencia.";
+        stepDisplay.text = "";
+        taskList.text = "";
+    }
+    
+    public void SetUI()
+    {
+        Step step = steps[_current];
+        
+        instructionText.text = step.instruction;
+        stepDisplay.text = $"Paso {_current + 1} de {steps.Count}";
+        
+        _sb.Clear();
+        
+        foreach (Task t in step.groceryList)
+        {
+            _sb.AppendLine($"{t.name} {(t.isDone ? done : notdone)}");
+        }
+        
+        taskList.text = _sb.ToString();
+    }
+
+    private bool CurrentStepDone()
+    {
+        foreach (Task t in steps[_current].groceryList)
+        {
+            if (!t.isDone) return false;
+        }
+        
+        return true;
     }
 }

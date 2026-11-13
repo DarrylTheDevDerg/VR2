@@ -33,6 +33,7 @@ TagManager:
   - QDSUIToggleThumbnail
   - Food
   - Knife
+  - FryingPan
   layers:
   - Default
   - TransparentFX

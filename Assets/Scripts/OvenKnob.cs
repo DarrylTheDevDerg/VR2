@@ -6,6 +6,7 @@ public class OvenKnob : MonoBehaviour
     public enum Axis {X,Y,Z}
     public Axis axis;
     public float minAngle = 0f, maxAngle = 270f;
+    public bool invert;
 
     public int steps = 0;
     
@@ -13,7 +14,13 @@ public class OvenKnob : MonoBehaviour
     public float Value;
 
     private float _lValue = -1f;
+    private Quaternion _rest;
 
+    void Start()
+    {
+        _rest = transform.localRotation;
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -38,9 +45,22 @@ public class OvenKnob : MonoBehaviour
 
     float GetLocalAngle()
     {
-        Vector3 eulers = transform.localEulerAngles;
-        float raw = axis == Axis.X ? eulers.x : axis == Axis.Y ? eulers.y : eulers.z;
+        Vector3 axisVec, refVec;
+
+        switch (axis)
+        {
+            case Axis.X: axisVec = Vector3.right; refVec = Vector3.up; break;
+            case Axis.Y: axisVec = Vector3.up; refVec = Vector3.forward; break;
+            default: axisVec = Vector3.forward; refVec = Vector3.right; break;
+        }
         
-        return Mathf.DeltaAngle(0f, raw);
+        Quaternion delta = Quaternion.Inverse(_rest) * transform.localRotation;
+        Vector3 rotated = delta * refVec;
+        
+        float signed = Vector3.SignedAngle(refVec, rotated, axisVec);
+        if (invert) signed = -signed;
+        
+        float mid = (minAngle + maxAngle) * 0.5f;
+        return mid + Mathf.DeltaAngle(mid, signed);
     }
 }

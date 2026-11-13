@@ -31,21 +31,21 @@ public class AnimatorControl : MonoBehaviour
 
     private Animator _a;
     private int _current = 0;
-    private bool _working;
+
+    void Awake()
+    {
+        _a = GetComponent<Animator>();
+    }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _a = GetComponent<Animator>();
-        
         if (shouldBegin) UpdateAnimatorParams(_current);
     }
 
     public void UpdateAnimatorParams(int i)
     {
-        if (_working) return;
-        
-        _working = true;
+        bool shouldAdvance = false;
         
         foreach (Asset a in param[i].assets)
         {
@@ -65,16 +65,14 @@ public class AnimatorControl : MonoBehaviour
                 
                 case PropertyType.TRIGGER:
                     if (a.triggerMod == TriggerAction.SET) _a.SetTrigger(a.name);
-                    else _a.ResetTrigger(a.name);
+                    else if (a.triggerMod == TriggerAction.RESET) _a.ResetTrigger(a.name);
                     break;
             }
             
-            if (a.advance) _current++;
-        
-            if (_current > param.Count + 1) _current = 0;
+            if (a.advance) shouldAdvance = true;
         }
-        
-        _working = false;
+
+        if (shouldAdvance) _current = (i + 1) % param.Count;
     }
 
     public void TriggerSet(string tName)
